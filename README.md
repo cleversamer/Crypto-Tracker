@@ -17,6 +17,7 @@ Realtime cryptocurrencies' prices tracker with react native.
 - React Native Community/NetInfo
 - React Native DotEnv
 - React Native Gesture Handler
+- React Native Safe Area Context
 - React Navigation/Native
 - React Navigation/Native Stack
 - RNEUI/Base

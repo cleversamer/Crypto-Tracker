@@ -2,7 +2,6 @@ import { useLayoutEffect } from "react";
 import { StyleSheet, TouchableOpacity, View } from "react-native";
 import { Avatar, Text } from "@rneui/themed";
 import { AntDesign } from "@expo/vector-icons";
-import useAuth from "../auth/useAuth";
 import colors from "../config/colors";
 
 const HeaderBackIcon = ({ navigation, headerTintColor }) => (
@@ -55,11 +54,9 @@ const HeaderRight = ({ LeftIcon, RightIcon }) => {
 };
 
 const useHeader = (navigation, options = {}) => {
-  const { user } = useAuth();
-
   const renderHeaderLeft = () => () =>
     options.headerLeft ? (
-      <HeaderLeft photoURL={user.photoURL} />
+      <HeaderLeft photoURL={options.photoURL} />
     ) : (
       <HeaderBackIcon {...options} navigation={navigation} />
     );

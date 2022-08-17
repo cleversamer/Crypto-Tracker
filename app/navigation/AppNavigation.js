@@ -3,9 +3,7 @@ import HomeScreen from "../screens/HomeScreen";
 import routes from "./routes";
 
 const globalScreenOptions = {
-  headerStyle: { backgroundColor: "#2c6bed" },
-  headerTitleStyle: { color: "#fff" },
-  headerTintColor: "#fff",
+  headerShown: false,
 };
 
 const Stack = createNativeStackNavigator();
