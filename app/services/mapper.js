@@ -14,7 +14,7 @@ const mapCoinsToHomeScreenView = () => {
     } = coin;
 
     return {
-      current_price,
+      current_price: separateByComma(current_price),
       id,
       image,
       market_cap_rank,
@@ -24,6 +24,26 @@ const mapCoinsToHomeScreenView = () => {
       symbol: `${symbol}/USDT`,
     };
   });
+};
+
+const separateByComma = (val = 0) => {
+  let strNum = val.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+  const arrNum = strNum.split(".");
+  const integer = arrNum[0];
+  let fractions = "";
+
+  if (arrNum.length === 1) {
+    return `${integer}.0`;
+  }
+
+  for (let i = 0; i < arrNum[1].length; i++) {
+    const char = arrNum[1].charAt(i);
+    if (char !== ",") {
+      fractions += char;
+    }
+  }
+
+  return `${integer}.${fractions}`;
 };
 
 const beautifyMarketCap = (mcap) => {
@@ -61,9 +81,10 @@ const beautifyMarketCap = (mcap) => {
   }
 
   // Default value is regex value that returns the number separated by commas.
-  return mcap.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+  return separateByComma(mcap);
 };
 
 export default {
   mapCoinsToHomeScreenView,
+  separateByComma,
 };

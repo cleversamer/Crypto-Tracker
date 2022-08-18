@@ -3,6 +3,7 @@ import { EvilIcons, Ionicons } from "@expo/vector-icons";
 import { Image, Text } from "@rneui/themed";
 import useNavigation from "../../navigation/useNavigation";
 import colors from "../../config/colors";
+import Rank from "../Rank";
 
 const CoinDetailsHeader = ({ coin }) => {
   const navigation = useNavigation();
@@ -23,11 +24,7 @@ const CoinDetailsHeader = ({ coin }) => {
 
         <Text style={[styles.text, styles.symbol]}>{coin.symbol}</Text>
 
-        <View style={styles.rank.container}>
-          <Text style={[styles.text, styles.rank.text]}>
-            {coin.market_data.market_cap_rank}
-          </Text>
-        </View>
+        <Rank rank={coin.market_data.market_cap_rank} />
       </View>
 
       <EvilIcons name="user" size={30} color={colors.white} />
@@ -51,21 +48,6 @@ const styles = StyleSheet.create({
   },
   text: {
     color: colors.white,
-  },
-  rank: {
-    container: {
-      alignItems: "center",
-      alignSelf: "center",
-      backgroundColor: colors.darkGrey,
-      borderRadius: 4,
-      justifyContent: "center",
-      marginRight: 5,
-      paddingHorizontal: 5,
-    },
-    text: {
-      fontSize: 12,
-      fontWeight: "bold",
-    },
   },
   symbol: {
     fontSize: 15,
