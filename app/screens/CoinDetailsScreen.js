@@ -5,13 +5,10 @@ import Screen from "../components/Screen";
 import Header from "../components/coinDetails/Header";
 import PriceTags from "../components/coinDetails/PriceTags";
 import withStatusBarPadding from "../hoc/withStatusBarPadding";
-
-import crypto from "../static/crypto.json";
 import colors from "../config/colors";
 
 const CoinDetailsScreen = ({ navigation, route }) => {
-  // const coin = route.params;
-  const coin = crypto;
+  const coin = route.params;
 
   return (
     <NavigationContext.Provider value={navigation}>

@@ -7,12 +7,11 @@ import useLoading from "./app/hooks/useLoading";
 const App = () => {
   const loading = useLoading();
 
-  return loading ? (
-    <StatusBar style="dark" />
-  ) : (
+  return (
     <SafeAreaProvider>
-      <StatusBar style="light" />
-      <Navigation />
+      {loading && <StatusBar style="dark" />}
+      {!loading && <StatusBar style="light" />}
+      {!loading && <Navigation />}
     </SafeAreaProvider>
   );
 };

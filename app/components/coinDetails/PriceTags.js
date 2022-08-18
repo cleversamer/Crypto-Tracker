@@ -1,13 +1,11 @@
 import { Text } from "@rneui/themed";
 import { View, StyleSheet } from "react-native";
-import mapper from "../../services/mapper";
+import mapper from "../../utilities/mapper";
 import colors from "../../config/colors";
 import PriceChange from "../PriceChange";
 
 const PriceTags = ({ coin }) => {
-  const current_price = mapper.separateByComma(
-    coin.market_data.current_price.usd
-  );
+  const current_price = mapper.separateByComma(coin.current_price);
 
   return (
     <View style={styles.container}>
@@ -17,9 +15,8 @@ const PriceTags = ({ coin }) => {
       </View>
 
       <PriceChange
-        containerOptions={{ style: styles.priceChangeContainer }}
         iconOptions={{ size: 18 }}
-        price={coin.market_data.price_change_percentage_24h}
+        price={coin.price_change_percentage_24h}
         textOptions={{ style: styles.priceChangePercentage }}
       />
     </View>
@@ -33,14 +30,11 @@ const styles = StyleSheet.create({
     justifyContent: "space-between",
     paddingVertical: 15,
   },
-  priceChangeContainer: {
-    alignSelf: "flex-end",
-  },
   text: {
     color: colors.white,
   },
   name: {
-    fontSize: 15,
+    fontSize: 16,
     fontWeight: "bold",
   },
   currentPrice: {

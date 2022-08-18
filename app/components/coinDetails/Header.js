@@ -20,11 +20,11 @@ const CoinDetailsHeader = ({ coin }) => {
       />
 
       <View style={styles.tickerContainer}>
-        <Image source={{ uri: coin.image.small }} style={styles.image} />
+        <Image source={{ uri: coin.image }} style={styles.image} />
 
         <Text style={[styles.text, styles.symbol]}>{coin.symbol}</Text>
 
-        <Rank rank={coin.market_data.market_cap_rank} />
+        <Rank rank={coin.market_cap_rank} />
       </View>
 
       <EvilIcons name="user" size={30} color={colors.white} />

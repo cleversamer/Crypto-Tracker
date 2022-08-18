@@ -6,7 +6,7 @@ import Screen from "../components/Screen";
 import withStatusBarPadding from "../hoc/withStatusBarPadding";
 import CoinItem from "../components/home/CoinItem";
 
-import mapper from "../services/mapper";
+import mapper from "../utilities/mapper";
 import colors from "../config/colors";
 
 const HomeScreen = ({ navigation }) => {
