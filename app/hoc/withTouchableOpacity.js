@@ -1,19 +1,13 @@
-import { StyleSheet, TouchableOpacity } from "react-native";
-import colors from "../config/colors";
+import { TouchableOpacity } from "react-native";
 
-const withTouchableOpacity = (Content, options) => (props) => {
-  return (
-    <TouchableOpacity {...options} style={[styles.container, options.style]}>
-      <Content {...props} />
-    </TouchableOpacity>
-  );
-};
-
-const styles = StyleSheet.create({
-  container: {
-    backgroundColor: colors.white,
-    flex: 1,
-  },
-});
+const withTouchableOpacity =
+  (Content, options = {}) =>
+  (props) => {
+    return (
+      <TouchableOpacity {...options} style={options.style}>
+        <Content {...props} />
+      </TouchableOpacity>
+    );
+  };
 
 export default withTouchableOpacity;

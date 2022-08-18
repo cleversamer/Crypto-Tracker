@@ -1,28 +1,40 @@
-import { StyleSheet } from "react-native";
+import { useState } from "react";
+import { StyleSheet, FlatList } from "react-native";
 import { StatusBar } from "expo-status-bar";
-import { Text } from "@rneui/themed";
 import Screen from "../components/Screen";
 import withStatusBarPadding from "../hoc/withStatusBarPadding";
+import CoinItem from "../components/CoinItem";
+
+import mapper from "../static/mapper";
 import colors from "../config/colors";
 
 const HomeScreen = (props) => {
+  const [refreshing, setRefreshing] = useState(false);
+
+  const handleRefresh = () => {};
+
   return (
     <Screen style={styles.container}>
       <StatusBar style="light" />
-      <Text style={{ color: "#fff" }}>Home Screen</Text>
+
+      <FlatList
+        data={mapper.mapCoinsToHomeScreenView()}
+        keyExtractor={(item) => item.id}
+        onRefresh={handleRefresh}
+        refreshing={refreshing}
+        renderItem={({ item }) => <CoinItem coin={item} />}
+      />
     </Screen>
   );
 };
 
 const styles = StyleSheet.create({
   statusBar: {
-    backgroundColor: colors.black,
+    backgroundColor: colors.lightBlack,
   },
   container: {
-    alignItems: "center",
-    backgroundColor: colors.black,
+    backgroundColor: colors.lightBlack,
     flex: 1,
-    justifyContent: "center",
   },
 });
 
