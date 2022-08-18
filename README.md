@@ -2,7 +2,7 @@
 
 ## Description
 
-Realtime cryptocurrencies' prices tracker with react native.
+Cryptocurrencies' prices tracker with React Native.
 
 ## Getting Started
 

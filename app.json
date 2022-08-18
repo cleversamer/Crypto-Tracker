@@ -3,7 +3,7 @@
     "name": "crypto-price-tracker",
     "slug": "crypto-price-tracker",
     "platforms": ["ios", "android", "web"],
-    "description": "Realtime cryptocurrencies' prices tracker with react native.",
+    "description": "Cryptocurrencies' prices tracker with React Native.",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./app/assets/icon.png",

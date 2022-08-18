@@ -4,7 +4,7 @@
     "name": "Samer A.",
     "website": "https://cleversamer.web.app/"
   },
-  "description": "Realtime cryptocurrencies' prices tracker with react native.",
+  "description": "Cryptocurrencies' prices tracker with React Native.",
   "version": "1.0.0",
   "main": "node_modules/expo/AppEntry.js",
   "scripts": {

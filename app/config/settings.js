@@ -1,4 +1,3 @@
-export default {
-  apiUrl: "https://coingecko.p.rapidapi.com/simple/price",
+export default Object.freeze({
   splashViewTime: 5 * 1000,
-};
+});
