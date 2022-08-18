@@ -2,7 +2,7 @@ import { StyleSheet } from "react-native";
 import { StatusBar } from "expo-status-bar";
 import NavigationContext from "../navigation/context";
 import Screen from "../components/Screen";
-import CoinDetailsHeader from "../components/CoinDetailsHeader";
+import CoinDetailsHeader from "../components/coinDetails/Header";
 import withStatusBarPadding from "../hoc/withStatusBarPadding";
 
 import crypto from "../static/crypto.json";
@@ -15,6 +15,7 @@ const CoinDetailsScreen = ({ navigation, route }) => {
     <NavigationContext.Provider value={navigation}>
       <Screen style={styles.container}>
         <StatusBar style="light" />
+
         <CoinDetailsHeader coin={coin} />
       </Screen>
     </NavigationContext.Provider>
@@ -27,6 +28,8 @@ const styles = StyleSheet.create({
   },
   container: {
     backgroundColor: colors.lightBlack,
+    paddingHorizontal: 10,
+    paddingTop: 5,
   },
 });
 

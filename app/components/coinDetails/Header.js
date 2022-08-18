@@ -1,8 +1,8 @@
 import { View, StyleSheet } from "react-native";
 import { EvilIcons, Ionicons } from "@expo/vector-icons";
 import { Image, Text } from "@rneui/themed";
-import useNavigation from "../navigation/useNavigation";
-import colors from "../config/colors";
+import useNavigation from "../../navigation/useNavigation";
+import colors from "../../config/colors";
 
 const CoinDetailsHeader = ({ coin }) => {
   const navigation = useNavigation();
@@ -40,8 +40,6 @@ const styles = StyleSheet.create({
     alignItems: "center",
     flexDirection: "row",
     justifyContent: "space-between",
-    paddingHorizontal: 10,
-    paddingTop: 5,
   },
   tickerContainer: {
     alignItems: "flex-end",
