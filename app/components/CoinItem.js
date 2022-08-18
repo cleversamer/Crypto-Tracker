@@ -1,8 +1,9 @@
 import { Image, Text } from "@rneui/themed";
-import { StyleSheet, View } from "react-native";
+import { StyleSheet, TouchableOpacity, View } from "react-native";
 import { AntDesign } from "@expo/vector-icons";
-import withTouchableOpacity from "../hoc/withTouchableOpacity";
 import colors from "../config/colors";
+import useNavigation from "../navigation/useNavigation";
+import routes from "../navigation/routes";
 
 const wrapperOptions = {
   activeOpacity: 0.1,
@@ -10,6 +11,7 @@ const wrapperOptions = {
 };
 
 const CoinItem = ({ coin }) => {
+  const navigation = useNavigation();
   const isPositive = coin.price_change_percentage_24h > 0;
   const percentage = {
     color: isPositive ? colors.green : colors.danger,
@@ -17,43 +19,47 @@ const CoinItem = ({ coin }) => {
     value: coin.price_change_percentage_24h.toFixed(2),
   };
 
+  const handlePress = () => navigation.navigate(routes.COIN_DETAILS, coin);
+
   return (
-    <View style={styles.container}>
-      <Image source={{ uri: coin.image }} style={styles.image} />
+    <TouchableOpacity {...wrapperOptions} onPress={handlePress}>
+      <View style={styles.container}>
+        <Image source={{ uri: coin.image }} style={styles.image} />
 
-      <View>
-        <Text style={styles.title}>{coin.name}</Text>
+        <View>
+          <Text style={styles.title}>{coin.name}</Text>
 
-        <View style={styles.infoContainer}>
-          <View style={styles.rank.container}>
-            <Text style={[styles.text, styles.rank.text]}>
-              {coin.market_cap_rank}
+          <View style={styles.infoContainer}>
+            <View style={styles.rank.container}>
+              <Text style={[styles.text, styles.rank.text]}>
+                {coin.market_cap_rank}
+              </Text>
+            </View>
+
+            <Text style={[styles.text, styles.symbol]}>{coin.symbol}</Text>
+
+            <AntDesign
+              color={percentage.color}
+              name={percentage.icon}
+              size={10}
+              style={styles.caret}
+            />
+
+            <Text style={[styles.text, styles.percentage]}>
+              {percentage.value}%
             </Text>
           </View>
+        </View>
 
-          <Text style={[styles.text, styles.symbol]}>{coin.symbol}</Text>
+        <View style={styles.rightContainer}>
+          <Text style={styles.title}>${coin.current_price}</Text>
 
-          <AntDesign
-            color={percentage.color}
-            name={percentage.icon}
-            size={10}
-            style={styles.caret}
-          />
-
-          <Text style={[styles.text, styles.percentage]}>
-            {percentage.value}%
+          <Text style={[styles.text, styles.marketCap]}>
+            {coin.market_cap} USDT
           </Text>
         </View>
       </View>
-
-      <View style={styles.rightContainer}>
-        <Text style={styles.title}>${coin.current_price}</Text>
-
-        <Text style={[styles.text, styles.marketCap]}>
-          {coin.market_cap} USDT
-        </Text>
-      </View>
-    </View>
+    </TouchableOpacity>
   );
 };
 
@@ -122,4 +128,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default withTouchableOpacity(CoinItem, wrapperOptions);
+export default CoinItem;

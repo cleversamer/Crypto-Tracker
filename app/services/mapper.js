@@ -1,4 +1,4 @@
-import cryptocurrencies from "./cryptocurrencies.json";
+import cryptocurrencies from "../static/cryptocurrencies.json";
 
 const mapCoinsToHomeScreenView = () => {
   return cryptocurrencies.map((coin) => {
