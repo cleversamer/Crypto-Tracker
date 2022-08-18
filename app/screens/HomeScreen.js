@@ -1,33 +1,30 @@
 import { useState } from "react";
 import { StyleSheet, FlatList } from "react-native";
 import { StatusBar } from "expo-status-bar";
-import NavigationContext from "../navigation/context";
 import Screen from "../components/Screen";
 import withStatusBarPadding from "../hoc/withStatusBarPadding";
-import CoinItem from "../components/home/CoinItem";
+import CoinItem from "../components/CoinItem";
 
 import mapper from "../utilities/mapper";
 import colors from "../config/colors";
 
-const HomeScreen = ({ navigation }) => {
+const HomeScreen = (props) => {
   const [refreshing, setRefreshing] = useState(false);
 
   const handleRefresh = () => {};
 
   return (
-    <NavigationContext.Provider value={navigation}>
-      <Screen style={styles.container}>
-        <StatusBar style="light" />
+    <Screen style={styles.container}>
+      <StatusBar style="light" />
 
-        <FlatList
-          data={mapper.mapCoinsToHomeScreenView()}
-          keyExtractor={(item) => item.id}
-          onRefresh={handleRefresh}
-          refreshing={refreshing}
-          renderItem={({ item }) => <CoinItem coin={item} />}
-        />
-      </Screen>
-    </NavigationContext.Provider>
+      <FlatList
+        data={mapper.mapCoinsToHomeScreenView()}
+        keyExtractor={(item) => item.id}
+        onRefresh={handleRefresh}
+        refreshing={refreshing}
+        renderItem={({ item }) => <CoinItem coin={item} />}
+      />
+    </Screen>
   );
 };
 
