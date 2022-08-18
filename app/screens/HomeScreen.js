@@ -4,7 +4,7 @@ import { StatusBar } from "expo-status-bar";
 import NavigationContext from "../navigation/context";
 import Screen from "../components/Screen";
 import withStatusBarPadding from "../hoc/withStatusBarPadding";
-import CoinItem from "../components/CoinItem";
+import CoinItem from "../components/home/CoinItem";
 
 import mapper from "../services/mapper";
 import colors from "../config/colors";

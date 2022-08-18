@@ -1,9 +1,9 @@
 import { Image, Text } from "@rneui/themed";
 import { StyleSheet, TouchableOpacity, View } from "react-native";
 import { AntDesign } from "@expo/vector-icons";
-import colors from "../config/colors";
-import useNavigation from "../navigation/useNavigation";
-import routes from "../navigation/routes";
+import colors from "../../config/colors";
+import useNavigation from "../../navigation/useNavigation";
+import routes from "../../navigation/routes";
 
 const wrapperOptions = {
   activeOpacity: 0.1,
